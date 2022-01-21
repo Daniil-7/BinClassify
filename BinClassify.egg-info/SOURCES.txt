@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+BinClassify/BinClassify.py
+BinClassify/__init__.py
+BinClassify.egg-info/PKG-INFO
+BinClassify.egg-info/SOURCES.txt
+BinClassify.egg-info/dependency_links.txt
+BinClassify.egg-info/not-zip-safe
+BinClassify.egg-info/top_level.txt
