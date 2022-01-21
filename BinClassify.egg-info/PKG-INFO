@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: BinClassify
-Version: 1.1.1
+Version: 1.1.2
 Summary: Binclassify is a library that makes it easy to classify into groups. The main idea of the library is to classify as many groups as possible using the minimum number of questions.
 Home-page: UNKNOWN
 Author: Daniil Zatsev
@@ -24,6 +24,10 @@ A good example is my soul color(RGB) detection test - Color Soul https://tatem.p
 #
 #
 # A simple example:
+## Installation
+```python
+pip install BinClassify
+```
 ## Let's find out how many questions we need:
 ```python
 # Import library

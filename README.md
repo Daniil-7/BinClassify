@@ -12,6 +12,10 @@ A good example is my soul color(RGB) detection test - Color Soul https://tatem.p
 #
 #
 # A simple example:
+## Installation
+```python
+pip install BinClassify
+```
 ## Let's find out how many questions we need:
 ```python
 # Import library

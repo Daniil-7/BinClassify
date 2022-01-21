@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 
 setup(name='BinClassify',
-      version='1.1.1',
+      version='1.1.2',
       description='Binclassify is a library that makes it easy to classify into groups. The main idea of the library is to classify as many groups as possible using the minimum number of questions.',
       packages=['BinClassify'],
       author="Daniil Zatsev",
