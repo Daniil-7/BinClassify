@@ -11,16 +11,15 @@ class BinClassify:
         self.val: bool = True
         self.varQuestion: int = 0
 
-    def __valid_type(self, var: Any, vartype: type) -> None:
-        tvar = type(var)
-        if tvar != vartype:
+    def __valid_type(self, var: Any, var_type: type) -> None:
+        if type(var) != var_type:
             raise TypeError(
-                f"must be real {vartype.__name__} , not {type(var).__name__}"
+                f"must be real {var_type.__name__} , not {type(var).__name__}"
             )
 
-    def __valid_min(self, number: int, minnumber: int) -> None:
-        if number < minnumber:
-            raise ValueError(f"The number must be greater than {minnumber}")
+    def __valid_min(self, number: int, min_number: int) -> None:
+        if number < min_number:
+            raise ValueError(f"The number must be greater than {min_number}")
 
     def CoutGroups(self, nqustion: int) -> list:
         self.__valid_type(nqustion, int)
