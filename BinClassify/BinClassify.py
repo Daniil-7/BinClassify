@@ -1,3 +1,4 @@
+from typing import Any
 import math
 
 
@@ -5,53 +6,53 @@ class BinClassifyError(Exception):
     pass
 
 
-def validtype(var, vartype):
-    tvar = type(var)
-    if tvar != vartype:
-        raise TypeError(
-            "must be real " + vartype.__name__ + ", not " + type(var).__name__
-        )
+class BinClassify:
+    def __init__(self) -> None:
+        self.val: bool = True
+        self.varQuestion: int = 0
 
+    def __valid_type(self, var: Any, vartype: type) -> None:
+        tvar = type(var)
+        if tvar != vartype:
+            raise TypeError(
+                f"must be real {vartype.__name__} , not {type(var).__name__}"
+            )
 
-def validnumber(number, minnumber):
-    validtype(number, int)
-    if number < minnumber:
-        raise ValueError("The number must be greater than " + str(minnumber))
+    def __valid_min(self, number: int, minnumber: int) -> None:
+        if number < minnumber:
+            raise ValueError(f"The number must be greater than {minnumber}")
 
-
-class BinClassify(object):
-    def __init__(self):
-        self.val = True
-        self.varQuestion = 0
-
-    def CoutGroups(self, nqustion):
-        validnumber(nqustion, 1)
+    def CoutGroups(self, nqustion: int) -> list:
+        self.__valid_type(nqustion, int)
+        self.__valid_min(nqustion, 1)
         if nqustion == 1:
             return [2, 2]
         else:
-            nmin = 2 ** (nqustion - 1) + 1
-            nmax = 2**nqustion
+            nmin: int = 2 ** (nqustion - 1) + 1
+            nmax: int = 2**nqustion
             return [nmin, nmax]
 
-    def CoutQustion(self, number):
-        validnumber(number, 2)
-        self.varHigh = number
+    def CoutQustion(self, number: int) -> int:
+        self.__valid_type(number, int)
+        self.__valid_min(number, 2)
+        self.varHigh: int = number
         self.varQuestion = math.ceil(math.log(number, 2))
         self.val = False
         return self.varQuestion
 
-    def Answer(self, arr):
-        validtype(arr, list)
+    def Answer(self, arr: list) -> int:
+        self.__valid_type(arr, list)
         if self.val:
             raise BinClassifyError("First you need to use the method CoutQustion")
         if len(arr) != self.varQuestion:
             raise ValueError(
-                "The number of elements in the array does not match the returned number of the CoutQustion method."
+                "The number of elements in the array does not match "
+                + "the returned number of the CoutQustion method."
             )
-        low = 1
-        high = self.varHigh
+        low: int = 1
+        high: int = self.varHigh
         for i in arr:
-            mid = (low + high) // 2
+            mid: int = (low + high) // 2
             if i == 0:
                 high = mid
             elif i == 1:
